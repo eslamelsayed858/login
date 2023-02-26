@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:task/custom_Button.dart';
+import 'package:task/view/home_screen.dart';
+import 'package:task/view/Register_screen.dart';
+import 'package:task/view/widget_text_form_fild.dart';
 
 import '../custom_clip_path.dart';
+import 'custom_text_fild_login.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -37,69 +41,36 @@ class LoginScreen extends StatelessWidget {
               height: 15,
             ),
             CustomButton(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const RegisterScreen();
+                    },
+                  ),
+                );
+              },
               kcolor: Colors.deepPurple,
+              text: 'Register',
+            ),
+            const SizedBox(
+              height: 3,
+            ),
+            CustomButton(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const HomeScrin();
+                    },
+                  ),
+                );
+              },
+              mcolor: Colors.deepPurple,
               text: 'Login',
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class CustomTextFildLogin extends StatelessWidget {
-  const CustomTextFildLogin({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        children: [
-          TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            decoration: const InputDecoration(
-              prefixIcon: Icon(
-                Icons.person,
-                color: Colors.deepPurple,
-              ),
-              labelText: 'Email',
-              labelStyle: TextStyle(
-                color: Colors.deepPurple,
-              ),
-              focusedBorder: OutlineInputBorder(),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(
-                  width: 1,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          TextFormField(
-            obscureText: true,
-            decoration: const InputDecoration(
-              prefixIcon: Icon(
-                Icons.key_off,
-                color: Colors.deepPurple,
-              ),
-              labelText: 'Password',
-              labelStyle: TextStyle(
-                color: Colors.deepPurple,
-              ),
-              suffixIcon: Icon(
-                Icons.remove_red_eye_outlined,
-                color: Colors.deepPurple,
-              ),
-              focusedBorder: OutlineInputBorder(),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(width: 1),
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }

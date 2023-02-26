@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:task/custom_Button.dart';
 import 'package:task/custom_clip_path.dart';
+import 'package:task/view/home_screen.dart';
 import 'package:task/view/text_form_filed.dart';
 import 'package:task/view/login_screen.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,29 +35,19 @@ class HomeScreen extends StatelessWidget {
               height: 1,
             ),
             const TextFiled(),
-            CustomButton(
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return const LoginScreen();
-                    },
-                  ),
-                );
-              },
-              kcolor: Colors.deepPurple,
-              text: 'Register',
+            const SizedBox(
+              height: 15,
             ),
             CustomButton(
               onTap: () async {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) {
-                    return const LoginScreen();
+                    return const HomeScrin();
                   },
                 ));
               },
               text: 'Login',
-              mcolor: Colors.deepPurple,
+              kcolor: Colors.deepPurple,
             ),
           ],
         ),

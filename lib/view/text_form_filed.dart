@@ -1,122 +1,80 @@
 import 'package:flutter/material.dart';
+import 'package:task/view/widget_text_form_fild.dart';
 
-class TextFiled extends StatelessWidget {
+class TextFiled extends StatefulWidget {
   const TextFiled({super.key});
 
+  @override
+  State<TextFiled> createState() => _TextFiledState();
+}
+
+bool ispas = true;
+bool ispass = true;
+
+class _TextFiledState extends State<TextFiled> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-          TextFormField(
-            decoration: const InputDecoration(
-              prefixIcon: Icon(
-                Icons.person,
-                color: Colors.deepPurple,
-              ),
-              labelText: 'Full Name',
-              labelStyle: TextStyle(
-                color: Colors.deepPurple,
-              ),
-              focusedBorder: OutlineInputBorder(),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(width: 1),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          TextFormField(
+          MyTextFormField(
             keyboardType: TextInputType.emailAddress,
-            decoration: const InputDecoration(
-              prefixIcon: Icon(
-                Icons.person,
-                color: Colors.deepPurple,
-              ),
-              labelText: 'Email',
-              labelStyle: TextStyle(
-                color: Colors.deepPurple,
-              ),
-              focusedBorder: OutlineInputBorder(),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(
-                  width: 1,
-                ),
-              ),
+            labelText: 'Full Name',
+            prefixIcon: Icons.person,
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          MyTextFormField(
+            keyboardType: TextInputType.emailAddress,
+            labelText: 'Email',
+            prefixIcon: Icons.person,
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          MyTextFormField(
+            keyboardType: TextInputType.phone,
+            labelText: 'phone',
+            prefixIcon: Icons.phone,
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          MyTextFormField(
+            keyboardType: TextInputType.visiblePassword,
+            obscureText: ispas,
+            labelText: 'Password',
+            prefixIcon: Icons.lock,
+            suffixIcon: IconButton(
+              onPressed: () {
+                setState(() {
+                  ispas = !ispas;
+                });
+              },
+              icon: ispas
+                  ? Icon(Icons.remove_red_eye_outlined)
+                  : Icon(Icons.visibility_off),
             ),
           ),
           const SizedBox(
             height: 8,
           ),
-          TextFormField(
-            keyboardType: TextInputType.number,
-            decoration: const InputDecoration(
-              prefixIcon: Icon(
-                Icons.phone,
-                color: Colors.deepPurple,
-              ),
-              labelText: 'Phone',
-              labelStyle: TextStyle(
-                color: Colors.deepPurple,
-              ),
-              focusedBorder: OutlineInputBorder(),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(
-                  width: 1,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          TextFormField(
-            obscureText: true,
-            decoration: const InputDecoration(
-              prefixIcon: Icon(
-                Icons.key_off,
-                color: Colors.deepPurple,
-              ),
-              labelText: 'Password',
-              labelStyle: TextStyle(
-                color: Colors.deepPurple,
-              ),
-              focusedBorder: OutlineInputBorder(),
-              suffixIcon: Icon(
-                Icons.remove_red_eye_outlined,
-                color: Colors.deepPurple,
-              ),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(
-                  width: 1,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          TextFormField(
-            obscureText: true,
-            decoration: const InputDecoration(
-              prefixIcon: Icon(
-                Icons.key_off,
-                color: Colors.deepPurple,
-              ),
-              labelText: 'Confirm Password',
-              labelStyle: TextStyle(
-                color: Colors.deepPurple,
-              ),
-              focusedBorder: OutlineInputBorder(),
-              suffixIcon: Icon(
-                Icons.remove_red_eye_outlined,
-                color: Colors.deepPurple,
-              ),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(width: 1),
-              ),
+          MyTextFormField(
+            keyboardType: TextInputType.visiblePassword,
+            obscureText: ispass,
+            labelText: 'Confirm Password',
+            prefixIcon: Icons.lock,
+            suffixIcon: IconButton(
+              onPressed: () {
+                setState(() {
+                  ispass = !ispass;
+                });
+              },
+              icon: ispass
+                  ? Icon(Icons.remove_red_eye_outlined)
+                  : Icon(Icons.visibility_off),
             ),
           ),
         ],
