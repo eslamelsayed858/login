@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:task/custom_Button.dart';
 import 'package:task/custom_clip_path.dart';
-import 'package:task/login_screen.dart';
-import 'package:task/text_form_filed.dart';
+import 'package:task/view/text_form_filed.dart';
+import 'package:task/view/login_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

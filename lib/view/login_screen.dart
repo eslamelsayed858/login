@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task/custom_Button.dart';
-import 'package:task/custom_clip_path.dart';
+
+import '../custom_clip_path.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
