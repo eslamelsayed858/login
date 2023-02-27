@@ -61,7 +61,7 @@ class LoginScreen extends StatelessWidget {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) {
-                      return const HomeScrin();
+                      return const AnimetedListView();
                     },
                   ),
                 );
