@@ -10,6 +10,10 @@ class TextFiled extends StatefulWidget {
 
 bool ispas = true;
 bool ispass = true;
+final NameController = TextEditingController();
+final EmailController = TextEditingController();
+final phoneController = TextEditingController();
+final passwordController = TextEditingController();
 
 class _TextFiledState extends State<TextFiled> {
   @override
@@ -19,6 +23,13 @@ class _TextFiledState extends State<TextFiled> {
       child: Column(
         children: [
           MyTextFormField(
+            controller: NameController,
+            validator: (value) {
+              if (value!.isEmpty) {
+                return "pleasse enter your Name";
+              }
+              return null;
+            },
             keyboardType: TextInputType.emailAddress,
             labelText: 'Full Name',
             prefixIcon: Icons.person,
@@ -27,6 +38,16 @@ class _TextFiledState extends State<TextFiled> {
             height: 8,
           ),
           MyTextFormField(
+            validator: (value) {
+              if (value!.isEmpty) {
+                return "pleasse enter your Email";
+              } else if (EmailController.text.contains('@') == false ||
+                  EmailController.text.contains('.') == false) {
+                return 'pleasse enter a valid emil';
+              }
+              return null;
+            },
+            controller: EmailController,
             keyboardType: TextInputType.emailAddress,
             labelText: 'Email',
             prefixIcon: Icons.person,
@@ -35,6 +56,15 @@ class _TextFiledState extends State<TextFiled> {
             height: 8,
           ),
           MyTextFormField(
+            validator: (value) {
+              if (value!.isEmpty) {
+                return "pleasse enter your phone";
+              } else if (value.length < 11) {
+                return 'password must be at least 11 characters';
+              }
+              return null;
+            },
+            controller: phoneController,
             keyboardType: TextInputType.phone,
             labelText: 'phone',
             prefixIcon: Icons.phone,
@@ -43,6 +73,15 @@ class _TextFiledState extends State<TextFiled> {
             height: 8,
           ),
           MyTextFormField(
+            validator: (value) {
+              if (value!.isEmpty) {
+                return "pleasse enter your Password";
+              } else if (value.length < 8) {
+                return 'password must be at least 8 characters';
+              }
+              return null;
+            },
+            controller: passwordController,
             keyboardType: TextInputType.visiblePassword,
             obscureText: ispas,
             labelText: 'Password',
@@ -62,6 +101,15 @@ class _TextFiledState extends State<TextFiled> {
             height: 8,
           ),
           MyTextFormField(
+            controller: passwordController,
+            validator: (value) {
+              if (value!.isEmpty) {
+                return "pleasse enter your Confirm Password";
+              } else if (value.length < 8) {
+                return 'password must be at least 8 characters';
+              }
+              return null;
+            },
             keyboardType: TextInputType.visiblePassword,
             obscureText: ispass,
             labelText: 'Confirm Password',

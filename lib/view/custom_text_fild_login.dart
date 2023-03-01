@@ -9,6 +9,8 @@ class CustomTextFildLogin extends StatefulWidget {
 }
 
 bool ispasw = true;
+final emailController = TextEditingController();
+final passwordController = TextEditingController();
 
 class _CustomTextFildLoginState extends State<CustomTextFildLogin> {
   @override
@@ -18,6 +20,16 @@ class _CustomTextFildLoginState extends State<CustomTextFildLogin> {
       child: Column(
         children: [
           MyTextFormField(
+            validator: (value) {
+              if (value!.isEmpty) {
+                return "pleasse enter your emil";
+              } else if (emailController.text.contains('@') == false ||
+                  emailController.text.contains('.') == false) {
+                return 'pleasse enter a valid emil';
+              }
+              return null;
+            },
+            controller: emailController,
             keyboardType: TextInputType.emailAddress,
             labelText: 'Email',
             prefixIcon: Icons.person,
@@ -26,6 +38,15 @@ class _CustomTextFildLoginState extends State<CustomTextFildLogin> {
             height: 20,
           ),
           MyTextFormField(
+            validator: (Value) {
+              if (Value!.isEmpty) {
+                return "pleasse enter your passwer";
+              } else if (Value.length < 8) {
+                return 'password must be at least 8 characters';
+              }
+              return null;
+            },
+            controller: passwordController,
             keyboardType: TextInputType.visiblePassword,
             obscureText: ispasw,
             labelText: 'Password',

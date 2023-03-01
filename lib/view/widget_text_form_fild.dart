@@ -6,8 +6,11 @@ Widget MyTextFormField({
   IconButton? suffixIcon,
   bool? obscureText,
   required TextInputType keyboardType,
+  required String? Function(String?)? validator,
+  required TextEditingController? controller,
 }) {
   return TextFormField(
+    controller: controller,
     obscureText: obscureText ?? false,
     keyboardType: keyboardType,
     decoration: InputDecoration(
@@ -33,5 +36,6 @@ Widget MyTextFormField({
         ),
       ),
     ),
+    validator: validator,
   );
 }
